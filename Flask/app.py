@@ -45,11 +45,6 @@ def ai_engine_page():
     return render_template("index.html")
 
 
-@app.route("/mobile-device")
-def mobile_device_detected_page():
-    return render_template("mobile-device.html")
-
-
 @app.route("/submit", methods=["GET", "POST"])
 def submit():
     if request.method == "POST":
@@ -80,17 +75,6 @@ def submit():
             simage=supplement_image_url,
             buy_link=supplement_buy_link,
         )
-
-
-@app.route("/market", methods=["GET", "POST"])
-def market():
-    return render_template(
-        "market.html",
-        supplement_image=list(supplement_info["supplement image"]),
-        supplement_name=list(supplement_info["supplement name"]),
-        disease=list(disease_info["disease_name"]),
-        buy=list(supplement_info["buy link"]),
-    )
 
 
 if __name__ == "__main__":
